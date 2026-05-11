@@ -1,0 +1,9 @@
+In this practical, I learned how to implement stochastic SIR models to simulate infectious disease spread, which is really interesting because I only learned the related theory in lectures before.
+
+The basic SIR model was quite easy to finish, I got it done quickly. The spatial SIR model was a bit tricky for me at first, I spent some time figuring out how to handle the neighbor infection and state updates without messing up the current step, but once I worked that out, it was really cool to see how the disease spreads spatially over time.
+
+The vaccination part was my favorite part. By running simulations with different vaccination rates, I could directly see how herd immunity works, and I found that the herd immunity threshold for this disease is around 70%, which matches what I learned in the class. It's really amazing to see the abstract theory come to life through the simulation.
+
+I also noticed that every time I run the code, the result has slight differences, which helped me really understand what a probabilistic model means, it's much more realistic than the deterministic models I learned before.
+
+Overall, this practical helped me understand how mathematical models can be used to study real-world public health problems, it was a really valuable learning experience.
