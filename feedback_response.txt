@@ -1,0 +1,17 @@
+I have received all the formative feedback, and here is my response:
+
+1. For Week3:
+   I scored 100% for Week3's assignment, all the assessment points were met.
+
+2. For Week4 (Practical4):
+   I have made the following changes based on the feedback:
+   - For variables.py:
+     * Added the comment to record that population growth in Scotland is decelerating, which was missing before.
+     * Added the truth table comment for the boolean operation W = X or Y, which was missing before.
+   - For mystery_code.py:
+     * Updated the one-sentence description of the code, now it correctly describes that this code calculates the sum of 11 random integers generated between 1 and 10, instead of the previous incomplete description.
+   - For creatine_clearance.py:
+     * Added the complete step-by-step pseudocode comments to plan the whole project, which was missing before.
+
+3. For Week5:
+   I scored 100% for Week5's assignment, all the assessment points were met.

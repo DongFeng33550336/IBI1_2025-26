@@ -1,25 +1,50 @@
-# Get patient data
-age = int(input("Age: "))
-weight = float(input("Weight (kg): "))
-gender = input("Gender (male/female): ").lower()
-cr = float(input("Creatinine (µmol/l): "))
+# Pseudocode for Creatine Clearance Calculator:
+# 1. Get input values: age, weight, gender, creatine concentration
+# 2. Validate each input against the required ranges:
+#    - age must be < 100
+#    - weight must be between 20 and 80
+#    - creatine must be between 0 and 100
+#    - gender must be either 'male' or 'female'
+# 3. If any input is invalid, print which variable needs correction
+# 4. If all inputs are valid:
+#    - Calculate CrCl using Cockcroft-Gault formula
+#    - If gender is female, multiply the result by 0.85
+#    - Print the calculated Creatine Clearance rate
 
-# Validate inputs
-msg = ""
-if age >= 100:
-    msg = "Invalid age: must be < 100"
-elif weight <= 20 or weight >= 80:
-    msg = "Invalid weight: must be 20–80 kg"
-elif cr <= 0 or cr >= 100:
-    msg = "Invalid creatinine: must be 0–100 µmol/l"
-elif gender not in ["male","female"]:
-    msg = "Invalid gender: use male or female"
+def calculate_creatine_clearance(age, weight, gender, cr):
+    # Input validation
+    if age >= 100:
+        print("Error: Age must be less than 100 years.")
+        return None
+    if not (20 < weight < 80):
+        print("Error: Weight must be between 20 and 80 kg.")
+        return None
+    if not (0 < cr < 100):
+        print("Error: Creatine concentration must be between 0 and 100 µmol/l.")
+        return None
+    gender = gender.lower()
+    if gender not in ['male', 'female']:
+        print("Error: Gender must be either 'male' or 'female'.")
+        return None
+    
+    # Calculate CrCl
+    crcl = ((140 - age) * weight) / (72 * cr)
+    if gender == 'female':
+        crcl = crcl * 0.85
+    
+    return crcl
 
-# Calculate and output
-if msg:
-    print("Error:", msg)
-else:
-    crcl = ((140-age)*weight)/(72*cr)
-    if gender == "female":
-        crcl *= 0.85
-    print("CrCl =", round(crcl,2))
+
+# Example usage
+if __name__ == "__main__":
+    # Test with valid input
+    print("Testing valid input (male, 30, 70, 80):")
+    result = calculate_creatine_clearance(30, 70, 'male', 80)
+    if result:
+        print(f"Creatine Clearance: {result:.2f} ml/min")
+    
+    print("\nTesting invalid input (age 101):")
+    result = calculate_creatine_clearance(101, 70, 'male', 80)
+    
+    print("\nTesting invalid input (weight 90):")
+    result = calculate_creatine_clearance(30, 90, 'male', 80)
